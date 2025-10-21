@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>G6-Team1 - Software Engineering Project</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #e0e0e0;
+            background: linear-gradient(135deg, #0f0f1e 0%, #1a1a2e 100%);
+            min-height: 100vh;
+        }
+
+        /* Hero Header */
+        .hero-header {
+            background: rgba(20, 20, 35, 0.95);
+            padding: 4rem 2rem;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            position: relative;
+            overflow: hidden;
+            border-bottom: 2px solid rgba(102, 126, 234, 0.3);
+        }
+
+        .hero-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero-title {
+            color: #667eea;
+            font-size: 3.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+            letter-spacing: -1px;
+            text-shadow: 0 2px 10px rgba(102, 126, 234, 0.3);
+        }
+
+        .hero-subtitle {
+            color: #a0aec0;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+        }
+
+        .hero-description {
+            color: #cbd5e0;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Main Content */
+        .main-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        .team-section {
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            text-align: center;
+            color: #e0e0e0;
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #a0aec0;
+            font-size: 1.1rem;
+            margin-bottom: 3rem;
+        }
+
+        /* Team Grid */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .team-card {
+            background: rgba(30, 30, 50, 0.8);
+            border-radius: 15px;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            text-decoration: none;
+            color: #e0e0e0;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(102, 126, 234, 0.2);
+        }
+
+        .team-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .team-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .team-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.2);
+            background: rgba(40, 40, 65, 0.95);
+            border-color: rgba(102, 126, 234, 0.4);
+        }
+
+        .card-icon {
+            font-size: 4rem;
+            color: #667eea;
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .team-card:hover .card-icon {
+            color: #764ba2;
+            transform: scale(1.1);
+        }
+
+        .member-name {
+            font-size: 1.3rem;
+            color: #e0e0e0;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .member-role {
+            color: #a0aec0;
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .view-portfolio {
+            display: inline-block;
+            color: #667eea;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+
+        .team-card:hover .view-portfolio {
+            color: #764ba2;
+            transform: translateX(5px);
+        }
+
+        .view-portfolio i {
+            margin-left: 0.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .team-card:hover .view-portfolio i {
+            transform: translateX(5px);
+        }
+
+        /* Info Section */
+        .info-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .info-card {
+            background: rgba(30, 30, 50, 0.8);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(102, 126, 234, 0.15);
+        }
+
+        .info-icon {
+            font-size: 3rem;
+            color: #667eea;
+            margin-bottom: 1rem;
+        }
+
+        .info-card h3 {
+            color: #e0e0e0;
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .info-card p {
+            color: #a0aec0;
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        .main-footer {
+            text-align: center;
+            padding: 2.5rem 2rem;
+            color: #a0aec0;
+            margin-top: 3rem;
+            background: rgba(0, 0, 0, 0.3);
+            border-top: 1px solid rgba(102, 126, 234, 0.2);
+        }
+
+        .main-footer p {
+            margin: 0.3rem 0;
+        }
+
+        .footer-subtitle {
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .team-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .main-content {
+                padding: 2rem 1rem;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .team-card {
+            animation: fadeInUp 0.6s ease backwards;
+        }
+
+        .team-card:nth-child(1) { animation-delay: 0.1s; }
+        .team-card:nth-child(2) { animation-delay: 0.2s; }
+        .team-card:nth-child(3) { animation-delay: 0.3s; }
+        .team-card:nth-child(4) { animation-delay: 0.4s; }
+        .team-card:nth-child(5) { animation-delay: 0.5s; }
+        .team-card:nth-child(6) { animation-delay: 0.6s; }
+    </style>
+</head>
+<body>
+    <header class="hero-header">
+        <div class="hero-content">
+            <h1 class="hero-title">G6-Team1</h1>
+            <p class="hero-subtitle">Software Engineering Project Team</p>
+            <p class="hero-description">Meet our talented team of developers building innovative solutions</p>
+        </div>
+    </header>
+    
+    <main class="main-content">
+        <section class="team-section">
+            <h2 class="section-title">Our Team Members</h2>
+            <p class="section-subtitle">Click on any member to view their portfolio</p>
+            
+            <div class="team-grid">
+                <!-- Team Member 1 -->
+                <a href="members/berbaoui-ashref-abderrahmane.html" class="team-card">
+                    <div class="card-icon">
+                        <i class="fas fa-user-circle"></i>
+                    </div>
+                    <h3 class="member-name">BERBAOUI Ashref Abderrahmane</h3>
+                    <p class="member-role">AI Engineer & Web Developer</p>
+                    <span class="view-portfolio">View Portfolio <i class="fas fa-arrow-right"></i></span>
+                </a>
+
+                <!-- Team Member 2 -->
+                <a href="members/hoggas-aya.html" class="team-card">
+                    <div class="card-icon">
+                        <i class="fas fa-user-circle"></i>
+                    </div>
+                    <h3 class="member-name">HOGGAS Aya</h3>
+                    <p class="member-role">Software Engineer</p>
+                    <span class="view-portfolio">View Portfolio <i class="fas fa-arrow-right"></i></span>
+                </a>
+
+                <!-- Team Member 3 -->
+                <a href="members/khentache-hamza-abderraouf.html" class="team-card">
+                    <div class="card-icon">
+                        <i class="fas fa-user-circle"></i>
+                    </div>
+                    <h3 class="member-name">KHENTACHE Hamza Abderraouf</h3>
+                    <p class="member-role">Software Engineer</p>
+                    <span class="view-portfolio">View Portfolio <i class="fas fa-arrow-right"></i></span>
+                </a>
+
+                <!-- Team Member 4 -->
+                <a href="members/moussaoui-hind-nour.html" class="team-card">
+                    <div class="card-icon">
+                        <i class="fas fa-user-circle"></i>
+                    </div>
+                    <h3 class="member-name">MOUSSAOUI Hind Nour</h3>
+                    <p class="member-role">Software Engineer</p>
+                    <span class="view-portfolio">View Portfolio <i class="fas fa-arrow-right"></i></span>
+                </a>
+
+                <!-- Team Member 5 -->
+                <a href="members/sehil-sihem.html" class="team-card">
+                    <div class="card-icon">
+                        <i class="fas fa-user-circle"></i>
+                    </div>
+                    <h3 class="member-name">SEHIL Sihem</h3>
+                    <p class="member-role">Software Engineer</p>
+                    <span class="view-portfolio">View Portfolio <i class="fas fa-arrow-right"></i></span>
+                </a>
+
+                <!-- Team Member 6 -->
+                <a href="members/sekkat-mohamed.amin.html" class="team-card">
+                    <div class="card-icon">
+                        <i class="fas fa-user-circle"></i>
+                    </div>
+                    <h3 class="member-name">SEKKAT Mohamed Amin</h3>
+                    <p class="member-role">Software Engineer</p>
+                    <span class="view-portfolio">View Portfolio <i class="fas fa-arrow-right"></i></span>
+                </a>
+            </div>
+        </section>
+
+    </main>
+    
+    <footer class="main-footer">
+        <p>&copy; 2025 G6-Team1. All rights reserved.</p>
+        <p class="footer-subtitle">Software Engineering Project - ENSIA</p>
+    </footer>
+</body>
+</html>
