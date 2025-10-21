@@ -259,6 +259,57 @@ img {
   box-shadow: 0 -1px 4px rgba(0, 0, 0, 0.15);
 }
 
+/*========== Back to Home Button ==========*/
+.back-to-home-container {
+  position: fixed;
+  top: 80px;
+  left: 20px;
+  z-index: 100;
+}
+
+.back-to-home-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: var(--first-color);
+  color: #fff;
+  border-radius: 3rem;
+  text-decoration: none;
+  font-weight: var(--font-medium);
+  font-size: var(--normal-font-size);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+}
+
+.back-to-home-btn:hover {
+  background: var(--first-color-alt);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.back-to-home-btn i {
+  font-size: 1.2rem;
+  transition: transform 0.3s ease;
+}
+
+.back-to-home-btn:hover i {
+  transform: translateX(-3px);
+}
+
+/* Responsive for back to home button */
+@media screen and (max-width: 768px) {
+  .back-to-home-container {
+    top: 70px;
+    left: 10px;
+  }
+  
+  .back-to-home-btn {
+    padding: 0.6rem 1rem;
+    font-size: var(--small-font-size);
+  }
+}
+
 /*========HOME=============*/
 .home__container {
   gap: 1rem;
